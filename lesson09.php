@@ -14,31 +14,29 @@ function gcd($a, $b) {
 
 function gcdWithLogging($a, $b) {
     $results = [];
-    $lastA = $a;
-    $lastB = $b;
+    $originalA = $a;
+    $originalB = $b;
 
     while ($b != 0) {
         $remainder = $a % $b;
-        //更新前のaとbを保存
-        $lastA = $a;
-        $lastB = $b;
 
-        //aとbを更新
+        // aとbを更新
         $a = $b;
         $b = $remainder;
-        
-        //余りを記録
+
+        // 余りを記録
         $results[] = $remainder;
     }
 
-    //計算過程の出力
+    // 計算過程の出力
     foreach ($results as $result) {
         if ($result != 0) {
             echo $result . "\n";
         }
     }
 
-    echo "{$lastA}と{$lastB}の最大公約数は{$a}\n";
+    // 最初に与えられたaとbで出力する
+    echo "{$originalA}と{$originalB}の最大公約数は{$a}\n";
     return $a;
 }
 ?>
